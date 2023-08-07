@@ -1,11 +1,9 @@
+import { NavLink } from "react-router-dom";
+
 const NavItem = () => {
     return <>
-    <a className="navbar-item">
-        Inicio
-    </a>
-    <a className="navbar-item">
-        Tienda
-    </a>
+    <NavLink to={`/category/general`} className="navbar-item">Limpieza General</NavLink>
+    <NavLink to={`/category/cocina`} className="navbar-item">Productos de Cocina</NavLink>
 </>
 }
 

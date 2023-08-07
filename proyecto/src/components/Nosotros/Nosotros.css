@@ -1,0 +1,26 @@
+.imgh{
+    /* float: left; */
+    margin-top: 8px;
+    height: 93vh;
+    width: 700px;
+}
+
+.center-article{
+    margin-top: 20%;
+    margin-right: 15%;
+}
+
+.h2n{
+    text-decoration: underline;
+    color:#9336B4;
+}
+
+.h3n{
+    font-size: 65px;
+    color: #9336B4;
+    text-decoration: underline;
+}
+
+.pn{
+    font-size: 20px;
+}
