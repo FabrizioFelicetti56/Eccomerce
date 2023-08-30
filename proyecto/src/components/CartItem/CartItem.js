@@ -3,29 +3,34 @@ import React from 'react';
 import { useContext } from 'react';
 
 
-const CartItem = ({products}) => {
+const CartItem = ({items}) => {
     
-    const { removeProducts } = useContext(CartContext)
+    const { removeItem } = useContext(CartContext)
 
 
     return (
         <div className='container'>
-
-            <div className='productsCategorie'>
-                <h2>
-                    {products.name}
-                </h2>
-                <p>
-                    Cantidad: {products.quantity}
-                </p>
-                <p>
-                    Subtotal: {products.quantity * products.price}
-                </p>
-                <button onClick={() => removeProducts(products.id)}>Eliminar</button>
-
+            <div className='columns'>
+                <div className='column'>
+                    <h2>
+                        {items.name}
+                    </h2>
+                </div>
+                <div className='column'>
+                    <p>
+                        Cantidad: {items.quantity}
+                    </p>
+                </div>
+                <div className='column'>
+                    <p>
+                        Subtotal: ${items.quantity * items.price}
+                    </p>
+                </div>
+                <div className='column'>
+                    <button onClick={() => removeItem(items.id)}>Eliminar</button>
+                </div>
             </div>
         </div>
-
     )
 };
 
