@@ -36,17 +36,6 @@ const ItemListContainer = () => {
             .finally(()=>{
                 setLoading(false)
             })
-
-
-        // const asyncFunc = categoryId ? getProductsByCategory : getProducts
-
-        // asyncFunc(categoryId)
-        //     .then(response => {
-        //         setProducts(response)
-        //     })
-        //     .catch(error => {
-        //         console.error(error)
-        //     })
     }, [categoryId])
 
     return (

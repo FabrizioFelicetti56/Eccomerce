@@ -47,7 +47,6 @@ const ItemDetail = ({id, name, img, category, description, price, stock}) => {
                                 )
                             }
                         </div>
-                            {/* <ItemCount initial={1} stock={stock} onAdd={(quantity)  => console.log("Cantidad agregada", quantity)}/> */}
                     </div>
                 </div>
             </div>

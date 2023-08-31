@@ -25,15 +25,6 @@ const ItemDetailContainer = () => {
         .finally(()=>{
             setLoading(false)
         })
-
-
-        // getProductsById(itemId)
-        // .then( response=> {
-        //     setProducts(response)
-        // })
-        // .catch(error => {
-        //     console.error(error)
-        // })
     }, [itemId])
 
     return(

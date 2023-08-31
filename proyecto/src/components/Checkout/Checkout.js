@@ -3,6 +3,7 @@ import { CartContext } from "../../context/CartContext"
 import { Timestamp, collection, documentId, getDocs, query, where, writeBatch, addDoc } from "firebase/firestore"
 import { db } from "../services/firebase/firebaseConfig"
 import CheckoutForm from "../CheckoutForm/CheckoutForm"
+import CartItem from "../CartItem/CartItem"
 
 
 const Checkout = () => {
@@ -11,16 +12,16 @@ const Checkout = () => {
 
     const {cart, totalPrice, clearCart} = useContext(CartContext)
 
-    const createOrder = async ({name, phone, email}) => {
+    const createOrder = async ({name, phone, email, email2}) => {
         setLoading(true)
 
         try{
             const objOrder = {
                 buyer: {
-                    name, phone, email
+                    name, phone, email, email2
                 },
                 items:cart,
-                total:totalPrice,
+                total:totalPrice(),
                 date: Timestamp.fromDate(new Date())
             }
             const batch = writeBatch(db)
@@ -69,15 +70,27 @@ const Checkout = () => {
     }
 
     if (loading) {
-        return <h1>Se está generando su orden...</h1>
+        return <h1 className="h1-size">Se está generando su orden...</h1>
     }
     if(orderId){
-        return <h1>El id de su orden es: {orderId}</h1>
+        return <h1 className="h1-size">El id de su orden es: {orderId}</h1>
     }
 
     return (
         <div>
-            <h1>Checkout</h1>
+            <div className='Container2 1'>
+                <div className="font-card">
+                    {
+                        cart.map(items => <CartItem key={items.id} items={items} />)
+                    }
+                </div>
+                <div className='container-total'>
+                    <p className='font-checkout'>
+                        Total: ${totalPrice()}
+                    </p>
+                </div>
+            </div>
+            <h1 className="h1-size">Checkout</h1>
             <CheckoutForm onConfirm={createOrder}/>
         </div>
     )
